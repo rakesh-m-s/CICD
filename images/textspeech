@@ -1,0 +1,19 @@
+https://texttospeech.googleapis.com/v1/textsynthesize 
+
+
+
+
+
+{"input":{
+	'text'='<speechtext>'
+},
+"voice":{
+	'languageCode':'<languageCode>',
+	'name':'<name>',
+	'ssmlGender':'<sex>'
+	},
+	"audioConfig":{
+	'audioEncoding':'MP3',
+	'speakinRate':<speakinRate>
+	}
+	}
