@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app
+        image: rakesh96/new-repo:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8085
+# service type loadbalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-svc
+spec:
+  type: Nodeport
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 8085
+      targetPort: 8085
+  type: LoadBalancer
